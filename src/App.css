@@ -4326,12 +4326,36 @@ a:focus-visible {
 }
 
 @media (max-width: 560px) {
+  html,
+  body,
+  #root,
+  .memora-app,
+  .app-shell-content,
+  .page-shell,
+  .site-shell,
+  .hero-section,
+  .cinematic-hero,
+  .cinematic-copy,
+  .hero-copy,
+  .story-demo,
+  .feature-showcase,
+  .story-showcase,
+  .memora-intro-header,
+  .memora-bridge-section,
+  .travel-chapters,
+  .photo-parallax-story,
+  .tab-modern-surface,
+  .cta-section {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
   body {
     overflow-x: hidden;
   }
 
   .memora-app {
-    width: 100vw;
+    width: 100%;
     overflow-x: hidden;
   }
 
@@ -4345,9 +4369,11 @@ a:focus-visible {
   }
 
   .public-topbar {
-    padding: 10px 10px 12px;
-    gap: 10px;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px 12px;
+    gap: 10px;
     min-height: auto;
   }
 
@@ -4378,19 +4404,35 @@ a:focus-visible {
   }
 
   .site-shell {
-    padding-top: 8px;
-    padding-bottom: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hero-section {
+    display: block;
+    min-height: 0;
+    padding: 12px 0 8px;
+    gap: 0;
+    margin: 0;
   }
 
   .cinematic-hero {
-    min-height: 360px;
-    padding: 18px 0 8px;
+    display: block;
+    min-height: 0;
+    height: auto;
+    padding: 18px 0 12px;
     border-radius: 22px;
+    align-items: stretch;
   }
 
   .cinematic-copy {
     max-width: 100%;
-    padding: 0 14px 2px;
+    padding: 0 14px 8px;
+  }
+
+  .hero-copy {
+    display: block;
+    margin: 0;
   }
 
   .hero-copy h1 {
@@ -4406,6 +4448,7 @@ a:focus-visible {
   }
 
   .hero-actions {
+    display: flex;
     flex-direction: column;
     align-items: stretch;
     width: 100%;
@@ -4426,6 +4469,7 @@ a:focus-visible {
     gap: 10px 6px;
     width: 100%;
     margin-top: 14px;
+    margin-bottom: 0;
   }
 
   .mini-stats li {
@@ -4444,8 +4488,33 @@ a:focus-visible {
   }
 
   .scroll-indicator {
-    bottom: 8px;
-    transform: translateX(-50%) scale(0.8);
+    display: none;
+  }
+
+  .site-shell > section,
+  .site-shell > div,
+  .story-demo,
+  .info-section,
+  .stats-section,
+  .security-section,
+  .cta-section,
+  .feature-showcase,
+  .story-showcase,
+  .memora-intro-header,
+  .memora-bridge-section,
+  .travel-chapters,
+  .photo-parallax-story,
+  .story-chapter,
+  .auth-tab-section,
+  .tab-modern-surface,
+  .memory-lounge-section,
+  .editorial-storytelling,
+  .editorial-gallery,
+  .gallery-masonry {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
   }
 
   .tab-intro h2,
@@ -4456,38 +4525,6 @@ a:focus-visible {
   .cta-section h2 {
     font-size: 1.8rem;
     line-height: 1.1;
-  }
-
-  .memora-intro-header {
-    margin-top: 8px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-  }
-
-  .editorial-storytelling {
-    margin-top: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  .photo-parallax-story,
-  .travel-chapters,
-  .feature-showcase,
-  .story-showcase,
-  .stats-section,
-  .cta-section,
-  .tab-modern-surface,
-  .memora-bridge-section,
-  .memory-lounge-section {
-    margin-top: 8px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-  }
-
-  .story-chapter {
-    margin-top: 0;
-    padding-top: 8px;
-    padding-bottom: 8px;
   }
 
   .feature-grid,
@@ -4503,6 +4540,64 @@ a:focus-visible {
   .stats-panel {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .benefit-grid {
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .benefit-card,
+  .feature-card,
+  .story-panel-box,
+  .memory-lounge-section,
+  .story-showcase,
+  .feature-showcase {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .benefit-card {
+    min-height: 0;
+    padding: 16px 14px;
+    text-align: center;
+  }
+
+  .benefit-card h3,
+  .feature-card h3,
+  .story-copy h2,
+  .memory-lounge-copy h2,
+  .section-heading h2 {
+    text-align: center;
+  }
+
+  .story-showcase {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px 10px;
+  }
+
+  .story-copy,
+  .story-panel,
+  .memory-lounge-copy {
+    text-align: center;
+  }
+
+  .story-points {
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .story-panel-box {
+    padding: 16px 14px;
+  }
+
+  .memory-lounge-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px 10px 10px;
   }
 
   .travel-card-grid {
