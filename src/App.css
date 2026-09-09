@@ -4458,9 +4458,23 @@ a:focus-visible {
     line-height: 1.1;
   }
 
+  .memora-intro-header {
+    margin-top: 10px;
+    padding-top: 8px;
+  }
+
+  .editorial-storytelling {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .photo-parallax-story,
+  .travel-chapters {
+    margin-top: 10px;
+  }
+
   .story-showcase,
   .feature-showcase,
-  .memora-intro-header,
   .story-chapter,
   .stats-section,
   .cta-section,
@@ -4485,6 +4499,14 @@ a:focus-visible {
   .stats-panel {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .travel-card-grid {
+    gap: 10px;
+  }
+
+  .parallax-scene {
+    height: 280px;
   }
 
   .auth-tab-shell {
