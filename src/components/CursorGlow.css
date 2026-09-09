@@ -1,0 +1,36 @@
+.cursor-glow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 420px;
+  height: 420px;
+  margin-left: -210px;
+  margin-top: -210px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.9;
+  background: radial-gradient(
+    circle,
+    rgba(255, 120, 108, 0.5) 0%,
+    rgba(255, 91, 148, 0.35) 18%,
+    rgba(142, 92, 255, 0.26) 32%,
+    rgba(255, 255, 255, 0.12) 52%,
+    transparent 72%
+  );
+  filter: blur(20px);
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+  transition: opacity 0.22s ease;
+  box-shadow:
+    0 0 30px rgba(255, 112, 92, 0.2),
+    0 0 80px rgba(255, 79, 136, 0.18),
+    0 0 120px rgba(139, 92, 255, 0.14);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .cursor-glow {
+    display: none;
+  }
+}
+
