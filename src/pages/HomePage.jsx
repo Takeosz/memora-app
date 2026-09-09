@@ -313,8 +313,7 @@ export default function HomePage() {
     setAuthMode(mode)
     setPasswordRecovery(false)
     setError('')
-    setIsAuthModalOpen(false)
-    setActiveTab('auth')
+    setIsAuthModalOpen(true)
   }
 
   const closeAuth = () => {
