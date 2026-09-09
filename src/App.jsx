@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { useAuth } from './AuthContext.jsx'
-import HomePage from './pages/HomePage.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import ProjectPage from './pages/ProjectPage.jsx'
 import CursorGlow from './components/CursorGlow.jsx'
@@ -10,14 +9,7 @@ import './App.css'
 function RequireAuth({ children }) {
   const { user, loading } = useAuth()
   if (loading) return <div className="loading-screen">Carregando...</div>
-  if (!user) return <Navigate to="/" replace />
-  return children
-}
-
-function RedirectIfAuthed({ children }) {
-  const { user, loading } = useAuth()
-  if (loading) return <div className="loading-screen">Carregando...</div>
-  if (user) return <Navigate to="/dashboard" replace />
+  if (!user) return <div className="loading-screen">Acesse o dashboard após fazer login.</div>
   return children
 }
 
@@ -123,7 +115,7 @@ function App() {
       <CursorGlow />
       <div key={location.pathname} className={`app-shell-content page-shell ${transitionState}`}>
         <Routes location={location}>
-          <Route path="/" element={<RedirectIfAuthed><HomePage /></RedirectIfAuthed>} />
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route
             path="/dashboard"
             element={(
@@ -133,7 +125,7 @@ function App() {
             )}
           />
           <Route path="/p/:slug" element={<ProjectPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </div>
     </div>
