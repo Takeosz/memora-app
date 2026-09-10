@@ -20,6 +20,7 @@ async function request(path, options = {}) {
 export const api = {
   register: (payload) => request('/auth/register', { method: 'POST', body: JSON.stringify(payload) }),
   login: (payload) => request('/auth/login', { method: 'POST', body: JSON.stringify(payload) }),
+  recoverPassword: (payload) => request('/auth/recover', { method: 'POST', body: JSON.stringify(payload) }),
   logout: () => request('/auth/logout', { method: 'POST' }),
   me: () => request('/auth/me'),
   updateMe: (payload) => request('/me', { method: 'PATCH', body: JSON.stringify(payload) }),

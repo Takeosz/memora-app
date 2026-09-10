@@ -24,6 +24,7 @@
     "lowdb": "^7.0.1",
     "multer": "^2.3.0",
     "nanoid": "^6.0.1",
+    "pg": "^8.23.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.3"

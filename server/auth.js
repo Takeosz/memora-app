@@ -1,13 +1,14 @@
 import jwt from 'jsonwebtoken'
 
 const COOKIE_NAME = 'memora_token'
+const isProduction = process.env.NODE_ENV === 'production'
 
 export function signSession(res, userId) {
   const token = jwt.sign({ sub: userId }, process.env.JWT_SECRET, { expiresIn: '7d' })
   res.cookie(COOKIE_NAME, token, {
     httpOnly: true,
-    sameSite: 'lax',
-    secure: process.env.NODE_ENV === 'production',
+    sameSite: isProduction ? 'none' : 'lax',
+    secure: isProduction,
     maxAge: 7 * 24 * 60 * 60 * 1000,
     path: '/',
   })

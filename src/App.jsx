@@ -2,6 +2,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { useAuth } from './AuthContext.jsx'
 import Dashboard from './pages/Dashboard.jsx'
+import HomePage from './pages/HomePage.jsx'
 import ProjectPage from './pages/ProjectPage.jsx'
 import CursorGlow from './components/CursorGlow.jsx'
 import './App.css'
@@ -115,7 +116,7 @@ function App() {
       <CursorGlow />
       <div key={location.pathname} className={`app-shell-content page-shell ${transitionState}`}>
         <Routes location={location}>
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/" element={<HomePage />} />
           <Route
             path="/dashboard"
             element={(
@@ -125,7 +126,7 @@ function App() {
             )}
           />
           <Route path="/p/:slug" element={<ProjectPage />} />
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
     </div>

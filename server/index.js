@@ -27,10 +27,12 @@ const allowedOrigins = [
   ...(process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',').map((origin) => origin.trim()).filter(Boolean) : []),
 ]
 
+const isVercelOrigin = (origin) => /^https:\/\/.*\.vercel\.app$/i.test(origin)
+
 app.use(helmet({ crossOriginResourcePolicy: false }))
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.includes(origin) || isVercelOrigin(origin)) {
       callback(null, true)
       return
     }
